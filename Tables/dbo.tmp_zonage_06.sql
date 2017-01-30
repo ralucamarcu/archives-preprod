@@ -1,0 +1,10 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[tmp_zonage_06] (
+		[text_zonage]     [varchar](2000) COLLATE French_CI_AS NULL
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[tmp_zonage_06] SET (LOCK_ESCALATION = TABLE)
+GO
