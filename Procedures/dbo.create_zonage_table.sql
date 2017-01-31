@@ -4,7 +4,7 @@ GO
 -- =============================================
 -- Author:		select * from saisie_donnees_documents where isnull(zonage_fichier,0) = 0
 -- Create date: <Create Date,,>
--- Description:	<Description,,>
+-- Description:	zonage table
 -- =============================================
 CREATE PROCEDURE [dbo].[create_zonage_table] 
 	-- Add the parameters for the stored procedure here
