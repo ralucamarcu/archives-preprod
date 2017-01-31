@@ -12,6 +12,9 @@ CREATE PROCEDURE [dbo].[AEL_Create_Ithaque_archives_BCP_files]
 	@id_document uniqueidentifier
 AS
 BEGIN
+
+-- test procedure
+
 	-- SET NOCOUNT ON added to prevent extra result sets from
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
