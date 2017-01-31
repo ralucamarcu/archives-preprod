@@ -7,6 +7,8 @@ CREATE PROCEDURE [dbo].[finalize_importation_MEP_MAJ]
 --@id_association INT=null
 AS 
 BEGIN 
+
+--test
   
 	DECLARE @IntegerResult INT, @id_tache_log INT, @id_tache_log_details INT, @id_projet UNIQUEIDENTIFIER,
 	 @id_source UNIQUEIDENTIFIER, @id_tache INT = 14, @id_utilisateur int=12
