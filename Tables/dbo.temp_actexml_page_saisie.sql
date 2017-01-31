@@ -14,5 +14,35 @@ CREATE TABLE [dbo].[temp_actexml_page_saisie] (
 		[image_viewer]        [varchar](800) COLLATE French_CI_AS NULL
 ) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[temp_actexml_page_saisie]
+	ADD
+	CONSTRAINT [DF_temp_actexml_page_saisie_date_creation]
+	DEFAULT (getdate()) FOR [date_creation]
+GO
+CREATE NONCLUSTERED INDEX [idx_fichier_acte_page]
+	ON [dbo].[temp_actexml_page_saisie] ([id_fichier_xml])
+	INCLUDE ([id_acte_ithaque], [id_acte_xml], [id_page])
+	ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [idx_id_acte_ithaque]
+	ON [dbo].[temp_actexml_page_saisie] ([id_acte_ithaque])
+	ON [PRIMARY]
+GO
+CREATE CLUSTERED INDEX [idx_id_fichier]
+	ON [dbo].[temp_actexml_page_saisie] ([id_fichier])
+	ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [idx_id_fichier_xml]
+	ON [dbo].[temp_actexml_page_saisie] ([id_fichier_xml])
+	ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [idx_image]
+	ON [dbo].[temp_actexml_page_saisie] ([image])
+	ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [idx_image_viewer]
+	ON [dbo].[temp_actexml_page_saisie] ([image_viewer])
+	ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[temp_actexml_page_saisie] SET (LOCK_ESCALATION = TABLE)
 GO

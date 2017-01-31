@@ -9,5 +9,18 @@ CREATE TABLE [dbo].[saisie_donnees_types_informations] (
 		[nom_type_info_DTD]     [varchar](50) COLLATE French_CI_AS NULL
 ) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_types_informations]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_types_informations]
+	PRIMARY KEY
+	CLUSTERED
+	([id_type_info])
+	ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[saisie_donnees_types_informations]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_types_informations_date_creation]
+	DEFAULT (getdate()) FOR [date_creation]
+GO
 ALTER TABLE [dbo].[saisie_donnees_types_informations] SET (LOCK_ESCALATION = TABLE)
 GO

@@ -23,5 +23,18 @@ CREATE TABLE [dbo].[saisie_donnees_publications] (
 		[url]                  [varchar](512) COLLATE French_CI_AS NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_publications]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_publications]
+	PRIMARY KEY
+	CLUSTERED
+	([id_publication])
+	ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[saisie_donnees_publications]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_publications_id_publication]
+	DEFAULT (newid()) FOR [id_publication]
+GO
 ALTER TABLE [dbo].[saisie_donnees_publications] SET (LOCK_ESCALATION = TABLE)
 GO

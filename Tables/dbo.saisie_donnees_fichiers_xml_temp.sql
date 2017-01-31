@@ -7,5 +7,9 @@ CREATE TABLE [dbo].[saisie_donnees_fichiers_xml_temp] (
 		[chemin]          [varchar](255) COLLATE French_CI_AS NULL
 ) ON [PRIMARY]
 GO
+CREATE NONCLUSTERED INDEX [id_document]
+	ON [dbo].[saisie_donnees_fichiers_xml_temp] ([id_document])
+	ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[saisie_donnees_fichiers_xml_temp] SET (LOCK_ESCALATION = TABLE)
 GO

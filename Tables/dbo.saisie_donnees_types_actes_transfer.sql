@@ -20,5 +20,13 @@ CREATE TABLE [dbo].[saisie_donnees_types_actes_transfer] (
 		[type_evenement_gedcom]          [varchar](10) COLLATE French_CI_AS NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_types_actes_transfer]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_types_actes_transfer]
+	PRIMARY KEY
+	CLUSTERED
+	([id_type_acte])
+	ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[saisie_donnees_types_actes_transfer] SET (LOCK_ESCALATION = TABLE)
 GO

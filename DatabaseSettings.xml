@@ -3,5 +3,5 @@
   <ServerVersion>Sql2008</ServerVersion>
   <ServerName>ARDSQL02\ARDSQL02FR</ServerName>
   <DatabaseName>archives</DatabaseName>
-  <DatabaseInformation Version="2" />
+  <DatabaseInformation Version="3" />
 </DatabaseSettings>

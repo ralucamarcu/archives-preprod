@@ -25,5 +25,13 @@ CREATE TABLE [dbo].[saisie_donnees_GeoNames] (
 		[id_ordonne]            [int] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_GeoNames]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_GeoNames]
+	PRIMARY KEY
+	CLUSTERED
+	([geonameid])
+	ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[saisie_donnees_GeoNames] SET (LOCK_ESCALATION = TABLE)
 GO

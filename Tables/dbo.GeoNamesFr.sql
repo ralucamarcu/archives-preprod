@@ -16,5 +16,13 @@ CREATE TABLE [dbo].[GeoNamesFr] (
 		[type]               [nvarchar](50) COLLATE French_CI_AS NULL
 ) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[GeoNamesFr]
+	ADD
+	CONSTRAINT [PK_GeoNamesFr]
+	PRIMARY KEY
+	CLUSTERED
+	([GeoNameid])
+	ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[GeoNamesFr] SET (LOCK_ESCALATION = TABLE)
 GO

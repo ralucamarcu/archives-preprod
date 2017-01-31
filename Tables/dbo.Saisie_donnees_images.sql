@@ -17,5 +17,21 @@ CREATE TABLE [dbo].[Saisie_donnees_images] (
 		[date_creation]              [datetime] NULL
 ) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[Saisie_donnees_images]
+	ADD
+	CONSTRAINT [PK_Saisie_donnees_images]
+	PRIMARY KEY
+	CLUSTERED
+	([id_image])
+	ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [id_document]
+	ON [dbo].[Saisie_donnees_images] ([id_document])
+	ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [path]
+	ON [dbo].[Saisie_donnees_images] ([path])
+	ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[Saisie_donnees_images] SET (LOCK_ESCALATION = TABLE)
 GO

@@ -9,5 +9,18 @@ CREATE TABLE [dbo].[saisie_donnees_types_informations_libelles_transfer] (
 		[date_creation]     [datetime] NULL
 ) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_types_informations_libelles_transfer]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_types_informations_libelles_transfer]
+	PRIMARY KEY
+	CLUSTERED
+	([id_type_info], [id_document])
+	ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[saisie_donnees_types_informations_libelles_transfer]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_types_informations_libelles_date_creation1]
+	DEFAULT (getdate()) FOR [date_creation]
+GO
 ALTER TABLE [dbo].[saisie_donnees_types_informations_libelles_transfer] SET (LOCK_ESCALATION = TABLE)
 GO

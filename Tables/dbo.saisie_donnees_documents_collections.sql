@@ -10,5 +10,13 @@ CREATE TABLE [dbo].[saisie_donnees_documents_collections] (
 		[id_cat3]         [int] NULL
 ) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_documents_collections]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_documents_collections]
+	PRIMARY KEY
+	CLUSTERED
+	([id])
+	ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[saisie_donnees_documents_collections] SET (LOCK_ESCALATION = TABLE)
 GO

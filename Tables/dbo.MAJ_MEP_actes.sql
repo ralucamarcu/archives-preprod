@@ -20,5 +20,13 @@ CREATE TABLE [dbo].[MAJ_MEP_actes] (
 		[soustype_acte_Correction]             [nvarchar](50) COLLATE French_CI_AS NULL
 ) ON [PRIMARY]
 GO
+CREATE NONCLUSTERED INDEX [idx_id_acte_archives]
+	ON [dbo].[MAJ_MEP_actes] ([id_acte])
+	ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [idx_id_acte_ithaque]
+	ON [dbo].[MAJ_MEP_actes] ([id_acte_ithaque])
+	ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[MAJ_MEP_actes] SET (LOCK_ESCALATION = TABLE)
 GO

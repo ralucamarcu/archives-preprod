@@ -33,5 +33,28 @@ CREATE TABLE [dbo].[saisie_donnees_actes_MAJ_transfer] (
 		[id_acte_ithaque]               [int] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_actes_MAJ_transfer]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_actes_MAJ_transfer]
+	PRIMARY KEY
+	CLUSTERED
+	([id_acte])
+	ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[saisie_donnees_actes_MAJ_transfer]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_actes_date_creationMAJ_]
+	DEFAULT (getdate()) FOR [date_creation]
+GO
+ALTER TABLE [dbo].[saisie_donnees_actes_MAJ_transfer]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_actes_id_acteMAJ_]
+	DEFAULT (newid()) FOR [id_acte]
+GO
+ALTER TABLE [dbo].[saisie_donnees_actes_MAJ_transfer]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_actes_id_statut_publicationMAJ_]
+	DEFAULT ((1)) FOR [id_statut_publication]
+GO
 ALTER TABLE [dbo].[saisie_donnees_actes_MAJ_transfer] SET (LOCK_ESCALATION = TABLE)
 GO

@@ -15,5 +15,28 @@ CREATE TABLE [dbo].[saisie_donnees_individus_identites_MAJ_transfer] (
 		[id_individu_ithaque]      [bigint] NULL
 ) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_individus_identites_MAJ_transfer]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_individus_identitesMAJ_]
+	PRIMARY KEY
+	CLUSTERED
+	([id_individu_identite])
+	ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[saisie_donnees_individus_identites_MAJ_transfer]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_individus_identites_date_creationMAJ_]
+	DEFAULT (getdate()) FOR [date_creation]
+GO
+ALTER TABLE [dbo].[saisie_donnees_individus_identites_MAJ_transfer]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_individus_identites_id_individu_identiteMAJ_]
+	DEFAULT (newid()) FOR [id_individu_identite]
+GO
+ALTER TABLE [dbo].[saisie_donnees_individus_identites_MAJ_transfer]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_individus_identites_ordreMAJ_]
+	DEFAULT ((1)) FOR [ordre]
+GO
 ALTER TABLE [dbo].[saisie_donnees_individus_identites_MAJ_transfer] SET (LOCK_ESCALATION = TABLE)
 GO

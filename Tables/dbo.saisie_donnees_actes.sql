@@ -33,5 +33,39 @@ CREATE TABLE [dbo].[saisie_donnees_actes] (
 		[id_acte_ithaque]               [int] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_actes]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_actes]
+	PRIMARY KEY
+	CLUSTERED
+	([id_acte])
+	ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[saisie_donnees_actes]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_actes_date_creation]
+	DEFAULT (getdate()) FOR [date_creation]
+GO
+ALTER TABLE [dbo].[saisie_donnees_actes]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_actes_id_acte]
+	DEFAULT (newid()) FOR [id_acte]
+GO
+CREATE NONCLUSTERED INDEX [id_acte_ithaque]
+	ON [dbo].[saisie_donnees_actes] ([id_acte_ithaque])
+	ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [id_acte_xml]
+	ON [dbo].[saisie_donnees_actes] ([id_acte_xml])
+	ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [id_fichier_xml]
+	ON [dbo].[saisie_donnees_actes] ([id_fichier_xml])
+	ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [id_page]
+	ON [dbo].[saisie_donnees_actes] ([id_page])
+	ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[saisie_donnees_actes] SET (LOCK_ESCALATION = TABLE)
 GO

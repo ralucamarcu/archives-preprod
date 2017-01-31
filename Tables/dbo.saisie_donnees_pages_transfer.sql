@@ -24,5 +24,21 @@ CREATE TABLE [dbo].[saisie_donnees_pages_transfer] (
 		[hash_v5_chemin]          [varchar](500) COLLATE French_CI_AS NULL
 ) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_pages_transfer]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_pages_transfer]
+	PRIMARY KEY
+	CLUSTERED
+	([id_page])
+	ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [idx_id_pages]
+	ON [dbo].[saisie_donnees_pages_transfer] ([id_page])
+	ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [idx_id_pages_temp]
+	ON [dbo].[saisie_donnees_pages_transfer] ([id_page])
+	ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[saisie_donnees_pages_transfer] SET (LOCK_ESCALATION = TABLE)
 GO

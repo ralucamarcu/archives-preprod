@@ -17,5 +17,13 @@ CREATE TABLE [dbo].[Saisie_donnees_images_transfer] (
 		[date_creation]              [datetime] NULL
 ) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[Saisie_donnees_images_transfer]
+	ADD
+	CONSTRAINT [PK_Saisie_donnees_images_transfer]
+	PRIMARY KEY
+	CLUSTERED
+	([id_image])
+	ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[Saisie_donnees_images_transfer] SET (LOCK_ESCALATION = TABLE)
 GO

@@ -15,5 +15,21 @@ CREATE TABLE [dbo].[saisie_donnees_corrections] (
 		[guid]                [uniqueidentifier] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_corrections]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_corrections]
+	PRIMARY KEY
+	CLUSTERED
+	([id_correction])
+	ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[saisie_donnees_corrections]
+	WITH CHECK
+	ADD CONSTRAINT [FK_saisie_donnees_corrections_saisie_donnees_emplacement_corrections]
+	FOREIGN KEY ([id_emplacement]) REFERENCES [dbo].[saisie_donnees_emplacement_corrections] ([id_emplacement])
+ALTER TABLE [dbo].[saisie_donnees_corrections]
+	CHECK CONSTRAINT [FK_saisie_donnees_corrections_saisie_donnees_emplacement_corrections]
+
+GO
 ALTER TABLE [dbo].[saisie_donnees_corrections] SET (LOCK_ESCALATION = TABLE)
 GO

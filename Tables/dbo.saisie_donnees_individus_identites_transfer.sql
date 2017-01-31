@@ -15,5 +15,13 @@ CREATE TABLE [dbo].[saisie_donnees_individus_identites_transfer] (
 		[id_individu_ithaque]      [bigint] NULL
 ) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_individus_identites_transfer]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_individus_identites_transfer]
+	PRIMARY KEY
+	CLUSTERED
+	([id_individu_identite])
+	ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[saisie_donnees_individus_identites_transfer] SET (LOCK_ESCALATION = TABLE)
 GO

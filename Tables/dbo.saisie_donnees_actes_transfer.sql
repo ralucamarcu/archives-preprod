@@ -33,5 +33,45 @@ CREATE TABLE [dbo].[saisie_donnees_actes_transfer] (
 		[id_acte_ithaque]               [int] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_actes_transfer]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_actes_transfer]
+	PRIMARY KEY
+	CLUSTERED
+	([id_acte])
+	ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[saisie_donnees_actes_transfer]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_actes_date_creation1]
+	DEFAULT (getdate()) FOR [date_creation]
+GO
+ALTER TABLE [dbo].[saisie_donnees_actes_transfer]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_actes_id_acte1]
+	DEFAULT (newid()) FOR [id_acte]
+GO
+ALTER TABLE [dbo].[saisie_donnees_actes_transfer]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_actes_id_statut_publication1]
+	DEFAULT ((1)) FOR [id_statut_publication]
+GO
+CREATE NONCLUSTERED INDEX [idx_id_statut_publication]
+	ON [dbo].[saisie_donnees_actes_transfer] ([id_statut_publication])
+	INCLUDE ([id_individu_sujet])
+	ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [IX_saisie_donnees_actes_id_commune_acte]
+	ON [dbo].[saisie_donnees_actes_transfer] ([id_commune_acte])
+	ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [IX_saisie_donnees_actes_id_pages_v1]
+	ON [dbo].[saisie_donnees_actes_transfer] ([id_page])
+	ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [IX_saisie_donnees_actes1]
+	ON [dbo].[saisie_donnees_actes_transfer] ([id_page])
+	ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[saisie_donnees_actes_transfer] SET (LOCK_ESCALATION = TABLE)
 GO

@@ -8,5 +8,18 @@ CREATE TABLE [dbo].[saisie_donnees_statuts_publication_actes] (
 		[date_creation]                  [datetime] NULL
 ) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_statuts_publication_actes]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_statuts_publication_actes]
+	PRIMARY KEY
+	CLUSTERED
+	([id_statut_publication])
+	ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[saisie_donnees_statuts_publication_actes]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_statuts_publication_actes_date_creation]
+	DEFAULT (getdate()) FOR [date_creation]
+GO
 ALTER TABLE [dbo].[saisie_donnees_statuts_publication_actes] SET (LOCK_ESCALATION = TABLE)
 GO

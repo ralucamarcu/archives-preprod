@@ -17,5 +17,17 @@ CREATE TABLE [dbo].[saisie_donnees_zones_actes] (
 		[date_modification]     [datetime] NULL
 ) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_zones_actes]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_zones_actes2]
+	PRIMARY KEY
+	CLUSTERED
+	([id_zone])
+	ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [id_acte]
+	ON [dbo].[saisie_donnees_zones_actes] ([id_acte])
+	ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[saisie_donnees_zones_actes] SET (LOCK_ESCALATION = TABLE)
 GO

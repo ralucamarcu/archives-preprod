@@ -8,5 +8,13 @@ CREATE TABLE [dbo].[saisie_donnees_emplacement_corrections] (
 		[nom_colonne]        [varchar](50) COLLATE French_CI_AS NULL
 ) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_emplacement_corrections]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_emplacement_corrections]
+	PRIMARY KEY
+	CLUSTERED
+	([id_emplacement])
+	ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[saisie_donnees_emplacement_corrections] SET (LOCK_ESCALATION = TABLE)
 GO

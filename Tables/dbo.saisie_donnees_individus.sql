@@ -55,5 +55,31 @@ CREATE TABLE [dbo].[saisie_donnees_individus] (
 		[id_individu_relation_test]     [uniqueidentifier] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_individus]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_individus]
+	PRIMARY KEY
+	CLUSTERED
+	([id_individu], [id_acte])
+	ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[saisie_donnees_individus]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_individus_date_creation]
+	DEFAULT (getdate()) FOR [date_creation]
+GO
+ALTER TABLE [dbo].[saisie_donnees_individus]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_individus_guid]
+	DEFAULT (newid()) FOR [guid_bad]
+GO
+CREATE NONCLUSTERED INDEX [id_acte]
+	ON [dbo].[saisie_donnees_individus] ([id_acte])
+	ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [id_individu_xml]
+	ON [dbo].[saisie_donnees_individus] ([id_individu_xml])
+	ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[saisie_donnees_individus] SET (LOCK_ESCALATION = TABLE)
 GO

@@ -13,5 +13,21 @@ CREATE TABLE [dbo].[saisie_donnees_fichiers_XML] (
 		[id_fichier_xml2]        [int] NULL
 ) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_fichiers_XML]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_xml]
+	PRIMARY KEY
+	CLUSTERED
+	([id_fichier_xml])
+	ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [id_document]
+	ON [dbo].[saisie_donnees_fichiers_XML] ([id_document])
+	ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [id_fichier_ithaque]
+	ON [dbo].[saisie_donnees_fichiers_XML] ([id_fichier_ithaque])
+	ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[saisie_donnees_fichiers_XML] SET (LOCK_ESCALATION = TABLE)
 GO

@@ -12,5 +12,18 @@ CREATE TABLE [dbo].[saisie_donnees_types_evenements] (
 		[id_type_evenement_global]     [int] NULL
 ) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_types_evenements]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_types_evenements]
+	PRIMARY KEY
+	CLUSTERED
+	([id_type_evenement])
+	ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[saisie_donnees_types_evenements]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_types_evenements_date_creation]
+	DEFAULT (getdate()) FOR [date_creation]
+GO
 ALTER TABLE [dbo].[saisie_donnees_types_evenements] SET (LOCK_ESCALATION = TABLE)
 GO

@@ -38,5 +38,13 @@ CREATE TABLE [dbo].[saisie_donnees_documents_transfer] (
 		[zonage_fichier]             [bit] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_documents_transfer]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_documents_transfer]
+	PRIMARY KEY
+	CLUSTERED
+	([id_document])
+	ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[saisie_donnees_documents_transfer] SET (LOCK_ESCALATION = TABLE)
 GO

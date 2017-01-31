@@ -9,5 +9,13 @@ CREATE TABLE [dbo].[saisie_donnees_bareme_unites] (
 		[nb_unites]            [int] NULL
 ) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_bareme_unites]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_bareme_unites]
+	PRIMARY KEY
+	CLUSTERED
+	([id_bareme_unites])
+	ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[saisie_donnees_bareme_unites] SET (LOCK_ESCALATION = TABLE)
 GO

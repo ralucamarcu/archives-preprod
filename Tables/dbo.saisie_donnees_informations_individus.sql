@@ -12,5 +12,23 @@ CREATE TABLE [dbo].[saisie_donnees_informations_individus] (
 		[date_creation]        [datetime] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_informations_individus]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_informations_individus]
+	PRIMARY KEY
+	CLUSTERED
+	([id_info_individu])
+	ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[saisie_donnees_informations_individus]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_informations_individus_date_creation]
+	DEFAULT (getdate()) FOR [date_creation]
+GO
+ALTER TABLE [dbo].[saisie_donnees_informations_individus]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_informations_individus_id_info_individu]
+	DEFAULT (newid()) FOR [id_info_individu]
+GO
 ALTER TABLE [dbo].[saisie_donnees_informations_individus] SET (LOCK_ESCALATION = TABLE)
 GO

@@ -9,5 +9,18 @@ CREATE TABLE [dbo].[saisie_donnees_types_identites] (
 		[date_creation]        [datetime] NULL
 ) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_types_identites]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_types_identites]
+	PRIMARY KEY
+	CLUSTERED
+	([id_type_identite])
+	ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[saisie_donnees_types_identites]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_types_identites_date_creation]
+	DEFAULT (getdate()) FOR [date_creation]
+GO
 ALTER TABLE [dbo].[saisie_donnees_types_identites] SET (LOCK_ESCALATION = TABLE)
 GO

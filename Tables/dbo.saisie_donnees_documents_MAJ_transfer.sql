@@ -38,5 +38,13 @@ CREATE TABLE [dbo].[saisie_donnees_documents_MAJ_transfer] (
 		[nb_images]                  [int] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_documents_MAJ_transfer]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_documentsMAJ_]
+	PRIMARY KEY
+	CLUSTERED
+	([id_document])
+	ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[saisie_donnees_documents_MAJ_transfer] SET (LOCK_ESCALATION = TABLE)
 GO

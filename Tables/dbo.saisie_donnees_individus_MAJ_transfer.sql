@@ -55,5 +55,23 @@ CREATE TABLE [dbo].[saisie_donnees_individus_MAJ_transfer] (
 		[id_individu_relation_test]     [uniqueidentifier] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_individus_MAJ_transfer]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_individusMAJ_]
+	PRIMARY KEY
+	CLUSTERED
+	([id_individu], [id_acte])
+	ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[saisie_donnees_individus_MAJ_transfer]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_individus_date_creationMAJ_]
+	DEFAULT (getdate()) FOR [date_creation]
+GO
+ALTER TABLE [dbo].[saisie_donnees_individus_MAJ_transfer]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_individus_guidMAJ_]
+	DEFAULT (newid()) FOR [guid_bad]
+GO
 ALTER TABLE [dbo].[saisie_donnees_individus_MAJ_transfer] SET (LOCK_ESCALATION = TABLE)
 GO

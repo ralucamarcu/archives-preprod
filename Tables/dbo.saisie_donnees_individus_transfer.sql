@@ -55,5 +55,13 @@ CREATE TABLE [dbo].[saisie_donnees_individus_transfer] (
 		[id_individu_relation_test]     [uniqueidentifier] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_individus_transfer]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_individus_transfer]
+	PRIMARY KEY
+	CLUSTERED
+	([id_individu], [id_acte])
+	ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[saisie_donnees_individus_transfer] SET (LOCK_ESCALATION = TABLE)
 GO

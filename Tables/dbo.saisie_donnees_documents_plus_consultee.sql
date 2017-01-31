@@ -8,5 +8,13 @@ CREATE TABLE [dbo].[saisie_donnees_documents_plus_consultee] (
 		[id_document]     [uniqueidentifier] NOT NULL
 ) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_documents_plus_consultee]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_documents_plus_consultee]
+	PRIMARY KEY
+	CLUSTERED
+	([id])
+	ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[saisie_donnees_documents_plus_consultee] SET (LOCK_ESCALATION = TABLE)
 GO

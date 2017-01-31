@@ -17,5 +17,18 @@ CREATE TABLE [dbo].[saisie_donnees_zones_actes_MAJ_transfer] (
 		[date_modification]     [datetime] NULL
 ) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_zones_actes_MAJ_transfer]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_zones_actes2MAJ_]
+	PRIMARY KEY
+	CLUSTERED
+	([id_zone])
+	ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[saisie_donnees_zones_actes_MAJ_transfer]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_zones_actes_date_creationMAJ_]
+	DEFAULT (getdate()) FOR [date_creation]
+GO
 ALTER TABLE [dbo].[saisie_donnees_zones_actes_MAJ_transfer] SET (LOCK_ESCALATION = TABLE)
 GO

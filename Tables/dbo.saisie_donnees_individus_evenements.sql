@@ -22,5 +22,36 @@ CREATE TABLE [dbo].[saisie_donnees_individus_evenements] (
 		[a_supprimer]               [bit] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_individus_evenements]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_individus_evenements]
+	PRIMARY KEY
+	CLUSTERED
+	([id_individu_evenement])
+	ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[saisie_donnees_individus_evenements]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_individus_evenements_date_creation]
+	DEFAULT (getdate()) FOR [date_creation]
+GO
+ALTER TABLE [dbo].[saisie_donnees_individus_evenements]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_individus_evenements_id_individu_evenement]
+	DEFAULT (newid()) FOR [id_individu_evenement]
+GO
+ALTER TABLE [dbo].[saisie_donnees_individus_evenements]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_individus_evenements_ordre]
+	DEFAULT ((1)) FOR [ordre]
+GO
+ALTER TABLE [dbo].[saisie_donnees_individus_evenements]
+	WITH CHECK
+	ADD CONSTRAINT [FK_saisie_donnees_individus_evenements_saisie_donnees_types_evenements]
+	FOREIGN KEY ([id_type_evenement]) REFERENCES [dbo].[saisie_donnees_types_evenements] ([id_type_evenement])
+ALTER TABLE [dbo].[saisie_donnees_individus_evenements]
+	CHECK CONSTRAINT [FK_saisie_donnees_individus_evenements_saisie_donnees_types_evenements]
+
+GO
 ALTER TABLE [dbo].[saisie_donnees_individus_evenements] SET (LOCK_ESCALATION = TABLE)
 GO

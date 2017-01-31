@@ -21,5 +21,13 @@ CREATE TABLE [dbo].[saisie_donnees_types_actes] (
 		[id_type_evenement_global]       [int] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_types_actes]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_types_actes]
+	PRIMARY KEY
+	CLUSTERED
+	([id_type_acte])
+	ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[saisie_donnees_types_actes] SET (LOCK_ESCALATION = TABLE)
 GO

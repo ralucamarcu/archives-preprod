@@ -10,5 +10,13 @@ CREATE TABLE [dbo].[saisie_donnees_commentaires] (
 		[date_creation]      [datetime] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_commentaires]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_commentaires]
+	PRIMARY KEY
+	CLUSTERED
+	([id_commentaire])
+	ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[saisie_donnees_commentaires] SET (LOCK_ESCALATION = TABLE)
 GO

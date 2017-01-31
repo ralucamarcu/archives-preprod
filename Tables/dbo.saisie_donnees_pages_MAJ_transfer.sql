@@ -24,5 +24,33 @@ CREATE TABLE [dbo].[saisie_donnees_pages_MAJ_transfer] (
 		[hash_v5_chemin]          [varchar](500) COLLATE French_CI_AS NULL
 ) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_pages_MAJ_transfer]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_pagesMAJ_]
+	PRIMARY KEY
+	CLUSTERED
+	([id_page])
+	ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[saisie_donnees_pages_MAJ_transfer]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_pages_affichage_imageMAJ_]
+	DEFAULT ((1)) FOR [affichage_image]
+GO
+ALTER TABLE [dbo].[saisie_donnees_pages_MAJ_transfer]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_pages_date_creationMAJ_]
+	DEFAULT (getdate()) FOR [date_creation]
+GO
+ALTER TABLE [dbo].[saisie_donnees_pages_MAJ_transfer]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_pages_id_pageMAJ_]
+	DEFAULT (newid()) FOR [id_page]
+GO
+ALTER TABLE [dbo].[saisie_donnees_pages_MAJ_transfer]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_pages_visible_1MAJ_]
+	DEFAULT ((1)) FOR [visible]
+GO
 ALTER TABLE [dbo].[saisie_donnees_pages_MAJ_transfer] SET (LOCK_ESCALATION = TABLE)
 GO

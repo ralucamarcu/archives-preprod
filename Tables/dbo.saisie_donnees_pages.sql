@@ -23,5 +23,45 @@ CREATE TABLE [dbo].[saisie_donnees_pages] (
 		[date_modification]       [datetime] NULL
 ) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[saisie_donnees_pages]
+	ADD
+	CONSTRAINT [PK_saisie_donnees_pages]
+	PRIMARY KEY
+	CLUSTERED
+	([id_page])
+	ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[saisie_donnees_pages]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_pages_affichage_image]
+	DEFAULT ((1)) FOR [affichage_image]
+GO
+ALTER TABLE [dbo].[saisie_donnees_pages]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_pages_date_creation]
+	DEFAULT (getdate()) FOR [date_creation]
+GO
+ALTER TABLE [dbo].[saisie_donnees_pages]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_pages_id_page]
+	DEFAULT (newid()) FOR [id_page]
+GO
+ALTER TABLE [dbo].[saisie_donnees_pages]
+	ADD
+	CONSTRAINT [DF_saisie_donnees_pages_visible_1]
+	DEFAULT ((1)) FOR [visible]
+GO
+CREATE NONCLUSTERED INDEX [id_document]
+	ON [dbo].[saisie_donnees_pages] ([id_document])
+	ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [image_origine]
+	ON [dbo].[saisie_donnees_pages] ([image_origine])
+	ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [image_viewer]
+	ON [dbo].[saisie_donnees_pages] ([image_viewer])
+	ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[saisie_donnees_pages] SET (LOCK_ESCALATION = TABLE)
 GO

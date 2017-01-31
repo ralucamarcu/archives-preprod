@@ -9,5 +9,13 @@ CREATE TABLE [dbo].[Feuil1$] (
 		[updated]             [bit] NULL
 ) ON [PRIMARY]
 GO
+CREATE NONCLUSTERED INDEX [idx_dossier]
+	ON [dbo].[Feuil1$] ([Dossier])
+	ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [idx_Nouveau_Dossier]
+	ON [dbo].[Feuil1$] ([Nouveau Dossier])
+	ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[Feuil1$] SET (LOCK_ESCALATION = TABLE)
 GO
